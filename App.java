@@ -71,6 +71,7 @@ public class App {
                 System.out.println();
           n--;
         }
+        //Reference: https://codescracker.com/java/java-nested-loops.htm
         System.out.println("Merry Christmas!");
     }   
 }
