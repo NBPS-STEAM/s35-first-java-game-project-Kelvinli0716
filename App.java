@@ -9,14 +9,27 @@ public class App {
         int guessNum;
         int tries = 0;
         boolean valid = false;
+        boolean start = false;
         int correctNum = (int) (Math.random() * 9) + 1;
         //(int) (Math.random() * (max - min)) + min;
         //Max: 10 
         //Min:1
         //Max-Min = 10-1 = 9
+        
         boolean win = false;
-       
-        while (win == false) {
+        String code = "I am not a robot!";
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Please type 'I am not a robot!' to verify that you are human being.");
+        String inputCode = input2.nextLine();
+        if (code.equals(inputCode)){
+          start = true;
+          System.out.println("You can start the game now!");
+        }
+        else{
+          System.out.println("Error!");
+        }
+        
+        while (win == false && start == true) {
             System.out.print("Guess a number between 1 to 10: ");
             guessNum = input.nextInt();
             tries++;
@@ -28,9 +41,10 @@ public class App {
                     break;
                 }
             }
+            
 
             //Compares the guess number and the correct number
-            if (valid == true) {
+            if ((valid == true) && (win == false)) {
                 if (guessNum == correctNum) {
                     win = true;
                 } else if (guessNum <= correctNum) {
@@ -43,7 +57,7 @@ public class App {
                 System.out.println("Reminder: Please type a number between 1 to 10!");
             }
 
-            //Prints a hint if the user has tried alreay 5 times
+            //Prints a hint if the user has tried already 5 times
             if (tries == 5) {
                 if (correctNum % 2.0 == 0) {
                     System.out.println("Hint: It's an even number!");
@@ -54,6 +68,7 @@ public class App {
             valid = false;
         }
         
+        if(win == true){
         //End Game Statements
         System.out.println("You Win!");
         System.out.println("The number was " + correctNum + ".");
@@ -73,5 +88,6 @@ public class App {
         }
         //Reference: https://codescracker.com/java/java-nested-loops.htm
         System.out.println("Merry Christmas!");
+        }
     }   
 }
