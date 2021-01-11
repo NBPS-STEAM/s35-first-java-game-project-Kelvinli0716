@@ -1,10 +1,6 @@
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
-        
-        //Retrieves User Input
-        Scanner input = new Scanner(System.in);
-        
         //Instance Variables
         int guessNum;
         int tries = 0;
@@ -16,10 +12,10 @@ public class App {
         //Min:1
         //Max-Min = 10-1 = 9
         
+        //Compare object
         boolean win = false;
-        String code = "I am not a robot!";
+        String code = "I am not a robot!";System.out.println("Please type 'I am not a robot!' to verify that you are human being.");
         Scanner input2 = new Scanner(System.in);
-        System.out.println("Please type 'I am not a robot!' to verify that you are human being.");
         String inputCode = input2.nextLine();
         if (code.equals(inputCode)){
           start = true;
@@ -31,6 +27,7 @@ public class App {
         
         while (win == false && start == true) {
             System.out.print("Guess a number between 1 to 10: ");
+            Scanner input = new Scanner(System.in);
             guessNum = input.nextInt();
             tries++;
             
